@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "TTTWebview.h"
 
 @interface ViewController ()
+
+@property (nonatomic) TTTWebview *webView;
 
 @end
 
@@ -16,7 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _webView = [[TTTWebview alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_webView];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]]];
 }
 
 
